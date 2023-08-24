@@ -50,10 +50,26 @@
 					<li class="parent">
 						<a href="#">about 회원</a>
 						<ul class="sub-menu">
+						<%
+						String loginok=(String)session.getAttribute("loginok");
+						if(loginok!="yes"){ %>
 							<li><a href="<%=root%>/index.jsp?main=login/loginmain.jsp"><i class="icon-wrench"></i> 로그인</a></li>
+							<%} else{%>
+							<li><a href="<%=root%>/index.jsp?main=login/loginmain.jsp"><i class="icon-wrench"></i> 로그아웃</a></li>
+							<%} %>
 							<li><a href="<%=root%>/index.jsp?main=member/memberform.jsp"><i class="icon-credit-card"></i>  회원가입</a></li>
-							<li><a href="<%=root%>/index.jsp?main=member/memberlist.jsp"><i class="icon-gift"></i> 회원목록</a></li>
 							
+							
+							<% 
+							
+							String myid = (String)session.getAttribute("myid");
+							if(myid.equals("admin")&&loginok!=null){%>
+							<li><a href="<%=root%>/index.jsp?main=member/memberlist.jsp"><i class="icon-gift"></i> 회원목록</a></li>
+							<%} %>
+							
+							<% if(loginok!=null) {%>
+							<li><a href="<%=root%>/index.jsp?main=member/myinfo.jsp"><i class="icon-gift"></i> 나의정보</a></li>
+							<%} %>
 						</ul>
 					</li>
 					

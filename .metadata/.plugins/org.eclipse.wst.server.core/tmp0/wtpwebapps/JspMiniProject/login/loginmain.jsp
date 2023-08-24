@@ -14,6 +14,16 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%
+//loginok는 로그인 성공시 저장하고 로그아웃시 제거
+String loginok=(String)session.getAttribute("loginok");
 
+if(loginok==null){%>
+	<jsp:include page="loginform.jsp"/>
+
+<%}else{%>
+	<jsp:include page="logoutform.jsp"/>
+
+<%} %>
 </body>
 </html>
