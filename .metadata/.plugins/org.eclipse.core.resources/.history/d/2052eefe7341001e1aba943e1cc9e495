@@ -1,7 +1,0 @@
-package data.dao;
-
-import mysql.db.DBConnect;
-
-public class MemberDao {
-	DBConnect db = new DBConnect();
-}

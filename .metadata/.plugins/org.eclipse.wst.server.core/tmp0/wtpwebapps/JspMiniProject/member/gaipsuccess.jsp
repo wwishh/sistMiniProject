@@ -26,7 +26,7 @@ String name=dao.getName(id);
 <img src="image/9.png" width="500"><br>
 <b><%=name %>님의 회원가입을 축하합니다</b>
 <br><br>
-<button type="button" class="btn btn-info" onclick="location.href='index.jsp?main=login/loginMain.jsp'">로그인</button>
+<button type="button" class="btn btn-info" onclick="location.href='index.jsp?main=login/loginmain.jsp'">로그인</button>
 
 <button type="button" class="btn btn-info" onclick="location.href='index.jsp'">메인</button>
 </div>

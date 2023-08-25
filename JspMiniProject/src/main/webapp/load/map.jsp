@@ -1,4 +1,3 @@
-<%@page import="data.dao.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -15,20 +14,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-	String id= request.getParameter("id");
-MemberDao dao = new MemberDao();
-//아이디에 대한 이름얻기
-String name=dao.getName(id);
-%>
-
-<div style="margin: 200px 200px">
-<img src="image/9.png" width="500"><br>
-<b><%=name %>님의 회원가입을 축하합니다</b>
-<br><br>
-<button type="button" class="btn btn-info" onclick="location.href='index.jsp?main=login/loginmain.jsp'">로그인</button>
-
-<button type="button" class="btn btn-info" onclick="location.href='index.jsp'">메인</button>
-</div>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106592.81087846763!2d126.1924942972656!3d33.3965031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x350c5f6816650b53%3A0xa96f526f32c1bd52!2z7JWE66W065a8666k7KeA7JeEIOygnOyjvA!5e0!3m2!1sko!2skr!4v1692925846923!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </body>
 </html>

@@ -74,11 +74,10 @@ if (request.getParameter("main") != null) {
 }
 %>
 <body>
-	<a href="<%=root%>">
 		<div class="Layout title">
 			<jsp:include page="layout/title.jsp" />
 		</div>
-	</a>
+	
 	<div class="Layout menu">
 		<jsp:include page="layout/menu.jsp" />
 	</div>

@@ -15,20 +15,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-	String id= request.getParameter("id");
-MemberDao dao = new MemberDao();
-//아이디에 대한 이름얻기
-String name=dao.getName(id);
-%>
-
-<div style="margin: 200px 200px">
-<img src="image/9.png" width="500"><br>
-<b><%=name %>님의 회원가입을 축하합니다</b>
-<br><br>
-<button type="button" class="btn btn-info" onclick="location.href='index.jsp?main=login/loginmain.jsp'">로그인</button>
-
-<button type="button" class="btn btn-info" onclick="location.href='index.jsp'">메인</button>
-</div>
+	<%
+		String num = request.getParameter("num");
+		MemberDao dao = new MemberDao();
+		dao.deleteMember(num);
+		
+		//session지우기
+		session.removeAttribute("loginok");
+		session.removeAttribute("myid");
+		session.removeAttribute("saveok");
+		
+		//이동
+		response.sendRedirect("../index.jsp");
+	%>
 </body>
 </html>
