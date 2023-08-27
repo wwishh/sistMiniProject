@@ -16,11 +16,12 @@
 </head>
 <body>
 	<div style="font-size:10pt; line-height:25px;">
+		<img src="image/logo.png" width="300" style="margin-bottom:20px">
+		<img src="image/rank.png" width="300" height="720" style="margin-bottom:20px">
 		<i class="bi bi-house-door">쌍용교육센터</i><br>
 		<i class="bi bi-telephone">02-1111-4444</i><br>
 		<i class="bi bi-geo-alt">서울시 강남구 역삼동</i><br>
 		<i class="bi bi-envelope">sist@gmail.com</i><br>
-		<img src="image/logo.png" width="200px">
 	</div>
 </body>
 </html>

@@ -42,15 +42,25 @@ div.menu {
 }
 
 div.info {
+	width: 300px;
+	height: 500px;
+	line-height: 10px;
+	font-family: "Orbit";
+	left: 20px;
+	top: 300px;
+	padding: 30px 10px;
+	/* border: 5px groove gray;
+	border-radius: 30px; */
+}
+
+div.info2 {
 	width: 180px;
 	height: 500px;
 	line-height: 10px;
 	font-family: "Orbit";
-	left: 30px;
+	left: 1570px;
 	top: 300px;
-	padding: 20px 10px;
-	/* border: 5px groove gray;
-	border-radius: 30px; */
+	padding: 30px 10px;
 }
 
 div.main {
@@ -84,6 +94,10 @@ if (request.getParameter("main") != null) {
 	<div class="Layout info">
 		<jsp:include page="layout/info.jsp" />
 	</div>
+	<div class="Layout info2">
+		<jsp:include page="layout/info2.jsp" />
+	</div>
+	
 	<div class="Layout main">
 		<jsp:include page="<%=mainPage%>" />
 	</div>
