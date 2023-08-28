@@ -73,7 +73,7 @@ String name = dao.getName(myid);
 	<%
 	} else {
 	%>
-	<b><%=name%>님 로그인 중...</b>
+	<b id="loginname"><%=name%>님 로그인 중...</b>
 	<button type="button" class="btn btn-danger"
 		style="width: 100px; z-index: 1"
 		onclick="location.href='index.jsp?main=login/logoutaction.jsp'"
