@@ -17,12 +17,9 @@
 	href="https://fonts.googleapis.com/css2?family=Dongle&family=Gaegu:wght@700&family=Nanum+Pen+Script&family=Single+Day&display=swap"
 	rel="stylesheet">
 
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 <style>
@@ -38,7 +35,7 @@ img.photo {
 </style>
 
 
-<script>
+<script type="text/javascript">
 $(function(){
 	$(".delme").click(function(){
 		
@@ -116,21 +113,32 @@ $(function(){
 	});
 	
 	$("i.aup").click(function(){
-		
+		var content = $(this).parent().find("span.scontent").text();
 		var idx = $(this).attr("idx");
 		
+		$("#mcontent").text(content);
+		$("#midx").val(idx);
+		$("#myModal").modal("show");
+		
+	}); 
+	
+	$("#btnmupdate").click(function(){
+		
+		var idx = $("#midx").val();
+		var content = $("#mcontent").val();
+		//alert(content);
 
 		$.ajax({
-			type:"get",
+			type:"post",
 			dataType:"html",
 			url:"guest/answerupdate.jsp",
-			data:{"idx":idx},
+			data:{"idx":idx, "content":content},
 			success:function(data){
 				location.reload();
 			}
-		});
-	});
-	
+		}); 
+	}); 
+	 
 	
 	
 	
@@ -189,7 +197,7 @@ $(function(){
 	//마지막 페이지 남은 한개글 지우면 빈페이지만 남는다  (해결책) 이전페이지로 간다
 	if (list.size() == 0 && currentPage != 1) {
 	%>
-	<script>
+	<script type="text/javascript">
 		location.href = "index.jsp?main=guest/guestlist.jsp?currentPage=<%=currentPage - 1%>
 		";
 	</script>
@@ -307,17 +315,17 @@ $(function(){
 									//글쓴이와 댓글 쓴이가 같을 경우 [작성자]
 									if(dto.getMyid().equals(adto.getMyid())){		
 									%>
-									<b><span style="color:red; border:1px solid red; border-radius:20px">작성자</span></b>
+									<b><span style="color:red; border:1px solid red; border-radius:20px; font-size:8pt">작성자</span></b>
 									<%} %>
 									
 									<span style="font-size:9pt;color:gray;margin-left:20px"><%=sdf.format(adto.getWriteday()) %></span>
 									<br>
-									<span><%=adto.getContent().replace("\n","<br>") %></span>
+									<span class="scontent"><%=adto.getContent().replace("\n","<br>") %></span>
 									<%
 										//수정 삭제는 로그인 중이면서 로그인한 아이디와 같은 경우만 보이게
 										if(loginok!=null&&adto.getMyid().equals(myid)){%>
 										<i class="bi bi-trash3 adel" style="color: red; cursor: pointer; float:right; font-size:20px" idx=<%=adto.getIdx() %>></i>
-										<i class="bi bi-pencil-square aup" data-bs-toggle="modal" data-bs-target="#myModal" style="color: green; cursor: pointer; float:right; font-size:20px" idx=<%=adto.getIdx() %>></i>
+										<i class="bi bi-pencil-square aup" data-bs-toggle="modal" style="color: green; cursor: pointer; float:right; font-size:20px" idx=<%=adto.getIdx() %>></i>
 									<%}%>
 									</td>
 									</tr>
@@ -455,12 +463,13 @@ $(function(){
       <!-- Modal body -->
       <div class="modal-body">
         <h4 class="modal-title">내용을 입력해주세요</h4>
-		<textarea style="width:400px; height:80px" name="content2" id="content2" required="required"></textarea>
+		<textarea style="width:400px; height:80px" id="mcontent" required="required"></textarea>
       </div>
 
       <!-- Modal footer -->
       <div class="modal-footer">
-      <button type="button" class="btn btn-info" style="float: right;">수정하기</button>
+      <input type="hidden" id="midx" value="">
+      <button type="button" class="btn btn-info" data-bs-dismiss="modal" id="btnmupdate" style="float: right;">수정하기</button>
       </div>
 
     </div>

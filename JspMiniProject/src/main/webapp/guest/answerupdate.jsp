@@ -1,3 +1,5 @@
+<%@page import="data.dto.AnswerDto"%>
+<%@page import="data.dao.AnswerDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -14,6 +16,22 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%
+	request.setCharacterEncoding("utf-8");
 
+	String content = request.getParameter("content");
+	String idx = request.getParameter("idx");
+	
+	AnswerDto dto = new AnswerDto();
+	
+	dto.setContent(content);
+	dto.setIdx(idx);
+	
+	
+	AnswerDao dao = new AnswerDao();
+	
+	dao.updateAnswer(dto);
+
+%>
 </body>
 </html>

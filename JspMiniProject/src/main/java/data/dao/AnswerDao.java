@@ -131,7 +131,7 @@ public class AnswerDao {
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
 		
-		String sql = "update set answer content=? where idx=?";
+		String sql = "update answer set content=? where idx=?";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
