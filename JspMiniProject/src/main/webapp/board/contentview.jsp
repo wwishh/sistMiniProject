@@ -40,7 +40,7 @@ img {
 	dao.updateReadCount(num);
 
 	SmartDto dto = dao.getData(num);
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); //시간은 datetime으로 해야함
 	%>
 
 	<div style="margin: 30px 30px; width: 500px">
@@ -65,10 +65,19 @@ img {
 					<button type="button" class="btn btn-outline-success"
 						onclick="location.href='index.jsp?main=board/updateform.jsp?num=<%=num%>&currentPage=<%=currentPage%>'">수정</button>
 					<button type="button" class="btn btn-outline-success"
-						onclick="location.href='index.jsp?main=board/delete.jsp'">삭제</button>
+						onclick="fundel(<%=num%>,<%=currentPage%>)">삭제</button>
 				</td>
 			</tr>
 		</table>
 	</div>
+	<script type="text/javascript">
+	function fundel(num,currentPage){
+		//alert(num+","+currentPage);
+		var a= confirm("삭제하려면 확인을 눌러주세요")
+		if(a){
+			location.href="board/deleteaction.jsp?num="+num+"&currentPage="+currentPage;
+		}
+	}
+	</script>
 </body>
 </html>
