@@ -1,3 +1,4 @@
+<%@page import="data.dao.SmartAnswerDao"%>
 <%@page import="data.dto.SmartDto"%>
 <%@page import="data.dao.SmartDao"%>
 <%@page import="java.text.SimpleDateFormat"%>
@@ -118,6 +119,15 @@ no = totalCount - (currentPage - 1) * perPage;
 //페이지에서 보여질 글만 가져오기
 List<SmartDto> list = dao.getPagingList(startNum, perPage);
 
+
+//댓글 dao
+SmartAnswerDao adao = new SmartAnswerDao();
+for(SmartDto dto:list){
+	//댓글 변수에 댓글 총 갯수 넣기
+	int acount = adao.getAllSmartAnswers(dto.getNum()).size();
+	dto.setAnswercount(acount);
+}
+
 //마지막 페이지 남은 글 지우면 빈페이지만 남는다 -> 해결: 이번페이지로 이동
 if (list.size() == 0 && currentPage != 1) {
 %>
@@ -162,8 +172,15 @@ if (list.size() == 0 && currentPage != 1) {
 			<tr>
 				<td align="center"><input type="checkbox" class="delcheck"
 					value="<%=dto.getNum()%>"> <%=no--%></td>
-				<td><a
-					href="index.jsp?main=board/contentview.jsp?num=<%=dto.getNum()%>&currentPage=<%=currentPage%>"><%=dto.getSubject()%></a>
+				<td>
+					<a href="index.jsp?main=board/contentview.jsp?num=<%=dto.getNum()%>&currentPage=<%=currentPage%>"><%=dto.getSubject()%></a>
+					
+					<!-- 댓글갯수출력 -->
+					<%
+						if(dto.getAnswercount()>0){%>
+						
+						<a href="index.jsp?main=board/contentview.jsp?num=<%=dto.getNum()%>&currentPage=<%=currentPage%>#alist" style="color:red">[<%=dto.getAnswercount() %>]</a>
+					<%}%>
 				</td>
 				<td><%=dto.getWriter()%></td>
 				<td align="center"><%=sdf.format(dto.getWriteday())%></td>

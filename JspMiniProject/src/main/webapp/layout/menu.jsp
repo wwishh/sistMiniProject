@@ -98,10 +98,10 @@ String myid = (String) session.getAttribute("myid");
 
 						<li><a href="<%=root%>/index.jsp?main=guest/guestlist.jsp">회원방명록</a></li>
 
-						<li class="parent"><a href="#">고객의 소리</a>
-							<ul class="sub-menu">
+						<li class="parent"><a href="<%=root%>/index.jsp?main=board/boardlist.jsp">스마트게시판</a>
+							<%-- <ul class="sub-menu">
 								<li><a href="<%=root%>/index.jsp?main=board/boardlist.jsp">스마트게시판</a></li>
-							</ul></li>
+							</ul></li> --%>
 
 
 
