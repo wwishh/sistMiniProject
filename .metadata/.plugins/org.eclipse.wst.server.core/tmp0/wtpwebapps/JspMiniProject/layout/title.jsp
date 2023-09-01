@@ -24,6 +24,15 @@
 	top: 150px;
 	left: 1800px;
 }
+
+#loginname{
+	position: absolute;
+	top: 200px;
+	left: 1700px;
+	color:white;
+	z-index: 1;
+	font-size: 20px;
+}
 </style>
 </head>
 <%
@@ -73,7 +82,7 @@ String name = dao.getName(myid);
 	<%
 	} else {
 	%>
-	<b id="loginname"><%=name%>님 로그인 중...</b>
+	<div id="loginname"><b><%=name%>님 로그인 중...</b></div>
 	<button type="button" class="btn btn-danger"
 		style="width: 100px; z-index: 1"
 		onclick="location.href='index.jsp?main=login/logoutaction.jsp'"
