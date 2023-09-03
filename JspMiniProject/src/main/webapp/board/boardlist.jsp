@@ -150,9 +150,9 @@ if (list.size() == 0 && currentPage != 1) {
 			</caption>
 			<tr class="table-light">
 				<th width="60">번호</th>
-				<th width="450">제목</th>
-				<th width="130">작성자</th>
-				<th width="160">작성일</th>
+				<th width="300">제목</th>
+				<th width="100">작성자</th>
+				<th width="140">작성일</th>
 				<th width="60">조회</th>
 			</tr>
 
