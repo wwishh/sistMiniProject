@@ -1,3 +1,4 @@
+<%@page import="java.text.NumberFormat"%>
 <%@page import="data.dao.MemberDao"%>
 <%@page import="data.dto.ShopDto"%>
 <%@page import="data.dao.ShopDao"%>
@@ -20,6 +21,22 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <title>Insert title here</title>
+<style>
+img.large{
+	width:450px;
+	height:520px;
+}
+</style>
+<script>
+$(function(){
+	$("#btncart").click(function(){
+		
+		//form태그의 모든값 가져오기
+		var formdata = $("#frm").serialize();
+		alert(formdata);
+	});
+});
+</script>
 </head>
 <%
 String shopnum = request.getParameter("shopnum");
@@ -42,7 +59,30 @@ ShopDto dto = dao.getData(shopnum);
 	<input type="hidden" name ="num" value="<%=num %>">
 	
 	<table style="width:800px">
-	
+		<tr>
+		<td style="width:500px">
+		<div id="photo">
+		<img alt="" src="shopsave/<%=dto.getPhoto()%>" class="img-thumbnail large">
+		</div>
+		</td>
+		<td>
+		<h3>카테고리: <%=dto.getCategory() %></h3>
+		<h3>상품명: <%=dto.getSangpum() %></h3>
+		<%
+		NumberFormat nf = NumberFormat.getCurrencyInstance();
+		%>
+		<h3>가격: <%=nf.format(dto.getPrice())  %></h3>
+		<h3>
+		갯수:
+		<input type="number" min="1" max="10" value="1" step="1" name="cnt">
+		</h3>
+		
+		<div style="margin-top:100px; margin-left:50px">
+			<button type="button" class="btn btn-success" id="btncart">장바구니</button>
+			<button type="button" class="btn btn-warning" onclick="location.href='index.jsp?main=shop/shoplist.jsp'">상품목록</button>
+		</div>
+		</td>
+		</tr>
 	</table>
 	</form>
 </body>
