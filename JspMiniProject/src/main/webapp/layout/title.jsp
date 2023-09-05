@@ -1,3 +1,4 @@
+<%@page import="data.dao.ShopDao"%>
 <%@page import="data.dao.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
@@ -17,6 +18,8 @@
 
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 <title>Insert title here</title>
 <style>
 
@@ -34,7 +37,36 @@
 	z-index: 1;
 	font-size: 15px;
 }
+div.cart{
+	float:right;
+	cursor: pointer;	
+}
+
+.count{
+	width: 30px;
+	height : 30px;
+	float : right;
+	background-color: red;
+	border-radius:100px;
+	text-align: center;
+	line-height : 30px;
+	z-index:10;
+	position: relative;
+	left: -20px;
+	top:10px;
+	color:white;
+	font-size: 0.8em;
+}
+
+
 </style>
+<script>
+	$(function(){
+		$("div.cart").click(function(){
+			location.href = "index.jsp?main=shop/mycart.jsp";
+		});
+	});
+</script>
 </head>
 <%
 //절대경로잡기
@@ -91,5 +123,15 @@ String name = dao.getName(myid);
 	<%
 	}
 	%>
+	
+	<div class="cart">
+	<%
+		ShopDao sdao = new ShopDao();
+		//카트갯수
+		int cartSize = sdao.getCartList(myid).size();
+	%>
+	<i class="bi bi-cart-fill" style="font-size:1.2em"></i>
+	<div class="count"><%=cartSize %></div>
+	</div>
 </body>
 </html>
