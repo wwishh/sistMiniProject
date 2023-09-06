@@ -14,6 +14,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106592.81087846763!2d126.1924942972656!3d33.3965031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x350c5f6816650b53%3A0xa96f526f32c1bd52!2z7JWE66W065a8666k7KeA7JeEIOygnOyjvA!5e0!3m2!1sko!2skr!4v1692925846923!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158857.83988653394!2d-0.26640295916129586!3d51.528739805084825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2z7JiB6rWtIOufsOuNmA!5e0!3m2!1sko!2skr!4v1693989980295!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </body>
 </html>
